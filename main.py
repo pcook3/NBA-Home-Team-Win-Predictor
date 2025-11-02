@@ -110,4 +110,6 @@ joblib.dump(scaler, "nba_scaler.pkl")
 # df_future_scaled = scaler.transform(df_future[X.columns])
 # future_probs = logreg.predict_proba(df_future_scaled)[:, 1]
 
-#predictions_df.to_csv("nba_predictions_for_dashboard.csv", index=False)
+predictions_df['PredictionCorrect'] = predictions_df['actual'] == predictions_df['predicted']
+predictions_df['PredictionCorrect'] = predictions_df['PredictionCorrect'].map({True:'Correct', False:'Incorrect'})
+predictions_df.to_csv("nba_predictions_for_dashboard.csv", index=False)
