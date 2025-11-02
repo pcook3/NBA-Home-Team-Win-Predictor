@@ -84,3 +84,4 @@ df['back_to_back_away'] = (df['days_since_last_away_game'] == 1).astype(int)
 #df.to_csv('merged_filtered_games.csv', index=False)
 
 print(df.columns.to_list())
+#print(df.head())
