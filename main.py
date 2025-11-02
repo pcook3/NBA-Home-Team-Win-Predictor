@@ -112,4 +112,6 @@ joblib.dump(scaler, "nba_scaler.pkl")
 
 predictions_df['PredictionCorrect'] = predictions_df['actual'] == predictions_df['predicted']
 predictions_df['PredictionCorrect'] = predictions_df['PredictionCorrect'].map({True:'Correct', False:'Incorrect'})
+accuracy = (predictions_df['PredictionCorrect'] == 'Correct').mean()
+print(accuracy)
 predictions_df.to_csv("nba_predictions_for_dashboard.csv", index=False)
